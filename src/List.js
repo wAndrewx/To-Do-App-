@@ -1,17 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { List, ListItem, ListIcon, OrderedList, UnorderedList } from "@chakra-ui/react"
+import { List, ListItem, FormControl, FormLabel } from "@chakra-ui/react"
 
 class ToDoList extends React.Component {
+    constructor(props) {
+        super(props);
+        // this.createItem = this.createItem.bind(this)
+        this.state = {
+            list: []
+        }
+    }
+
+    // createItem(data) {
+    //     console.log("submitted?")
+
+    //     return 
+    // }
 
     render() {
+        let information = this.props.dataInfo;
         return (
-            <List spacing={3}>
-                <ListItem>
-                    <ListIcon colorScheme="brand" color="blue.500" />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit
-            </ListItem>
-            </List>
+            <FormControl>
+                <List spacing={3} >
+                    <ListItem>{information}</ListItem>
+                </List>
+            </FormControl>
         )
     }
 }
