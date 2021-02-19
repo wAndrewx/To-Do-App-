@@ -1,14 +1,12 @@
 # To-Do-App-
 
-SO TODAY I AM DOING A TODO LIST 
-AND SO WHAT THAT REQUIRES ME TO DO 
-IS TO LEARN REACT AND PRACTICE AND TO USE IT :)
+TODO APP 
 
-ALSO I DONT WANNA DO CSS CAUSE IT SUCKS MAJOR BALLS, STYLING CREATES ANXIETY #NOTFUN.
-SO INSTEAD I AM USING CHAKRA AND ITS PRETTY AWESOME CAUSE I DO NOT HAVE TO USE CSS
+An app to familiarize myself with react 
+---------------
+# Features
 
-SO I AM USING PURELY REACT AND CHAKRA FOR THIS :)
-POGCHAMP
-
-Init is static website no function
-now
+*   Add new items
+#   To be added
+*   Delete items
+*   Look at finished items
