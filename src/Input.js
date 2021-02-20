@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Input, Button, InputGroup, Stack, StackDivider, HStack } from "@chakra-ui/react"
+import { Input, Button, InputGroup, Stack, StackDivider } from "@chakra-ui/react"
 import ToDoList from './List.js'
 
 class ToDoInput extends React.Component {
@@ -8,19 +8,31 @@ class ToDoInput extends React.Component {
         super(props);
         this.state = {
             inputVal: '',
-            listArr: []
+            listArr: [],
+            test: ''
 
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+
+    }
+    handleDelete(event) {
+
+        this.setState({
+            listArr: this.state.listArr.filter((index) => {
+                console.log("event:" + event + "index: " + index)
+                return index !== event
+            }),
+            // test:prevState.listArr
+        })
+        // console.log(this.state.test)
     }
 
     handleClick() {
-        let newData = this.state.inputVal.split(',')
-        console.log(newData)
-        let newArr = [...this.state.listArr]
+        let newData = this.state.inputVal
+        let newArr = [...this.state.listArr] // consisiting of text input values
         if (this.state.inputVal) {
-            newArr.concat(newData)
             newArr.push(newData)
         }
         this.setState({
@@ -38,7 +50,7 @@ class ToDoInput extends React.Component {
     }
     render() {
         return (
-            <Stack divider={<StackDivider borderColor="black" borderWidth="medium" />}
+            <Stack divider={<StackDivider borderColor="black" borderWidth="sm" />}
                 align="center" direction="column" maxW="25%"
                 borderColor="black" borderWidth="1px" borderRadius="10px">
 
@@ -46,16 +58,8 @@ class ToDoInput extends React.Component {
                     <Input onChange={this.handleChange} value={this.state.inputVal} placeholder="Item" margin="0.5em"></Input>
                     <Button onClick={this.handleClick} margin="0.5em" colorScheme="twitter" size="md">Submit</Button>
                 </InputGroup>
-                {
-                    this.state.listArr.map((a, b) => {
-                        return (<HStack spacing="5px">
-                            <ToDoList key={b} inputVal={a} />
-                            <Button>X</Button>
-                            </HStack>
 
-                        );
-                    })
-                }
+                <ToDoList inputVal={this.state.listArr} delete={this.handleDelete} />
 
 
             </Stack>
